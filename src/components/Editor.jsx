@@ -1,7 +1,12 @@
 import "./Editor.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
+import { TodoDispatchContext } from "../App";
 
-const Editor = ({ onCreate }) => {
+const Editor = () => {
+  // provider를 통해 저장된 데이터를 공급받을 수 있도록 설정
+  const { onCreate } = useContext(TodoDispatchContext);
+  console.log(onCreate);
+
   const [content, setContent] = useState("");
   const contentRef = useRef();
 
